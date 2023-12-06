@@ -26,4 +26,14 @@ function transacao(origem, destino, tipo, quantidade) {
     }
 }
 
+if(origem === "pomar"){
+    const pessoa = estoque[destino];
+    for(let i=0; i<pessoa.length; i++){
+        const monte = pessoal[i];
+        if (monte.tipo === tipo){
+            monte.qtd += Math.max(quantidade, 0);
+        }
+    }
+}
+
 export {getEstoque, transacao};
