@@ -7,7 +7,43 @@
     <script src="main.js" type ="module"></script>
     <main>
         <h1>DCC202 - Atividade 12: Ana Carolina Junqueira e Silva</h1>
-        <p>Esta é a página principal que usa JavaScript para adicionar interação.  </p>
+        <p>Esta é a página principal que usa JavaScript para adicionar interação.</p>
+        <section>
+            <form name="entrada">
+
+                <fieldset>
+                    <legend>Origem</legend>
+                    <label>
+                        <input type="radio" name="origem" value="pomar" checked/> Pomar
+                    </label>
+                    <label>
+                        <input type="radio" name="origem" value="joao"> 
+                        João
+                    </label>
+                    <label>
+                        <input type="radio" name="origem" value="maria">
+                        Maria
+                    </label>
+                </fieldset>
+
+                <fieldset>
+
+                    <legend>Destino</legend>
+                <label>
+                    <input type="radio" name="destino" value="pomar" checked/> Pomar
+                </label>
+                <label>
+                    <input type="radio" name="destino" value="joao">
+                    João
+                </label>
+                <label>
+                    <input type="radio" name="destino" value="maria">
+                    Maria
+                </label>
+                </fieldset>
+                <input type="number" name="quantidade" value="1" min="0" max="12" step="1"/>
+            </form>
+        </section>
     </main>
 </head>
 <body>
