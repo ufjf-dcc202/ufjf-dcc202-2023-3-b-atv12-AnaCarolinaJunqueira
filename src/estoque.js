@@ -26,4 +26,4 @@ function transacao(origem, destino, tipo, quantidade) {
     }
 }
 
-export (getEstoque, transacao);
+export {getEstoque, transacao};
