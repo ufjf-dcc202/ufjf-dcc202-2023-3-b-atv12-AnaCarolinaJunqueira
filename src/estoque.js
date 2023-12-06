@@ -8,3 +8,9 @@ let estoque = {
         {'tipo': 'banana', 'qnt': 40}
     ]
 };
+
+function getEstoque(){
+    return structuredClone(estoque);
+}
+
+export (getEstoque);
