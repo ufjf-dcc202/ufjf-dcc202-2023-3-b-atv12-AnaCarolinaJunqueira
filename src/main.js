@@ -10,6 +10,15 @@ function leFormulario(event){
     const origem = document.entrada.origem.value;
     const destino = document.entrada.destino.value;
 
-console.log(`${origem} doa ${quantidade} ${fruta} para ${destino}`);
-// document.entrada.submit();
+    console.log(`${origem} doa ${quantidade} ${fruta} para ${destino}`);
+
+    transacao(origem, destino, fruta, quantidade);
+    // document.entrada.submit();
+}
+
+function atualizaTela(){
+    const estoque = getEstoque();
+    preencheLista(olJoao, estoque.joao);
+    preencheLista(olMaria, estoque.maria);
+
 }
