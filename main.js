@@ -1,19 +1,17 @@
-import { getEstoque, transacaoNoEstoque, limpaEstoque } from "./src/estoque";
+import { getEstoque, transacaoNoEstoque, limpaEstoque } from "./estoque.js";
 
 const olJoao = document.querySelector("#joao");
 const olMaria = document.querySelector("#maria");
 
 document.entrada.addEventListener('submit', leFormulario);
-document,addEventListener('DOMContentLoaded', () => {
-    document.getElementById('buttonLimparLista').addEventListener('click',() => {
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('buttonLimparLista').addEventListener('click', () => {
         limpaEstoque();
         atualizaTela();
     });
 });
-
 atualizaTela();
-
-function leFormulario(event){
+function leFormulario(event) {
     event.preventDefault(event);
     const quantidade = document.entrada.quantidade.valueAsNumber;
     const fruta = document.entrada.fruta.value;
@@ -26,28 +24,29 @@ function leFormulario(event){
     atualizaTela();
 }
 
-function atualizaTela(){
+function preencheLista(lista, estoqueDaPessoa) {
+    lista.textContent = "";
+
+    for (let i = 0; i < estoqueDaPessoa.length; i++) {
+        const monte = estoqueDaPessoa[i];
+        const li = document.createElement('li');
+        li.textContent = `${monte.tipo}: ${monte.quantidade}`;
+        lista.appendChild(li);
+    }
+}
+
+function atualizaTela() {
     const estoque = getEstoque();
     olJoao.innerHTML = "";
-    olMaria.innerHTML= "";
+    olMaria.innerHTML = "";
     document.entrada.quantidade.value = 1;
     document.entrada.fruta.value = "maca";
 
-    if(estoque.joao && estoque.joao.lenght > 0){
+    if (estoque.joao && estoque.joao.length > 0) {
         preencheLista(olJoao, estoque.joao);
     }
-    if(estoque.maria && estoque.maria.length > 0) {
+
+    if (estoque.maria && estoque.maria.length > 0) {
         preencheLista(olMaria, estoque.maria);
-    }
-
-}
-
-function preencheLista(lista, estoqueDaPessoa){
-    lista.innerHTML = "";
-    for (let i = 0; i < estoqueDaPessoa.length; i++){
-        const monte = estoqueDaPessoa[i];
-        const li = document.createElement('li');
-        li.textContent = `${monte.tipo}: ${monte.qnt}`;
-        lista.appendChild(li);
     }
 }
